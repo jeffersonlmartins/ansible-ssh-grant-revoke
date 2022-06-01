@@ -1,0 +1,15 @@
+- name: Revogando usuario acesso SSH
+  authorized_key:
+    user: "{{ user_name }}"
+    state: absent
+    key: "{{ lookup('file', '../../../keys/{{ user_name }}/id_rsa.pub') }}"
+  tags:
+    - revogar
+
+- name: Removendo usuario
+  user:
+    name: "{{ user_name }}"
+    state: absent
+    remove: yes
+  tags:
+    - remover

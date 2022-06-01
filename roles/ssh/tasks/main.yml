@@ -1,0 +1,7 @@
+- name: Task - adicionar user
+  import_tasks: conceder.yml
+  when: action == "conceder"
+ 
+- name: Task - Remover User
+  import_tasks: revogar.yml
+  when: action == "revogar"
